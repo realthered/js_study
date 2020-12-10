@@ -9,6 +9,13 @@
     <p>This is my page</p>
     <script>
       let promise = fetch('coffee.jpg');
+      let promise2 = promise.then(response => {
+        if(!response.ok){
+          throw new Error('HTTP error! status: ${response.status}');
+        } else {
+          return response.blob();
+        }
+      });
     </script>
   </body>
 </html>
